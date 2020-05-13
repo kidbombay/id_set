@@ -1,6 +1,6 @@
 defmodule IdSet do
   @moduledoc """
-    An IdSet allows you to manage lists containing structs unique by id.
+    An IdSet allows you to manage lists containing structs uniquely by id.
   
     Any struct added/deleted must have an id field.
 

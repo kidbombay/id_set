@@ -11,7 +11,10 @@ defmodule IdSet.MixProject do
 
       # Docs
       name: "IdSet",
+      description: "An IdSet allows you to manage lists containing structs uniquely by id",
       source_url: "https://github.com/kidbombay/id_set",
+      maintainers: ["Ketan Anjaria"],
+      licenses: ["MIT"],
       docs: [
         main: "IdSet", # The main page in the docs
         extras: ["README.md"]
