@@ -12,9 +12,7 @@ An IdSet allows you to manage lists containing structs uniquely by id
 </p>
 
 <p>
-  <a href="https://github.com/kidbombay/id_set/actions">
-    <img alt="CI Status" src="https://github.com/kidbombay/id_set/workflows/ci/badge.svg">
-  </a>
+  ![ci](https://github.com/kidbombay/id_set/workflows/ci/badge.svg)
   <a href="https://opensource.org/licenses/MIT">
     <img alt="MIT License" src="https://img.shields.io/hexpm/l/id_set">
   </a>
