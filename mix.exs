@@ -9,12 +9,16 @@ defmodule IdSet.MixProject do
       start_permanent: Mix.env() == :prod,
       deps: deps(),
 
-      # Docs
       name: "IdSet",
       description: "An IdSet allows you to manage lists containing structs uniquely by id",
       source_url: "https://github.com/kidbombay/id_set",
-      maintainers: ["Ketan Anjaria"],
-      licenses: ["MIT"],
+
+      package: [
+        maintainers: ["Ketan Anjaria"],
+        licenses: ["MIT"],
+        links: %{"GitHub" => "https://github.com/kidbombay/id_set"}
+      ],
+      
       docs: [
         main: "IdSet", # The main page in the docs
         extras: ["README.md"]
