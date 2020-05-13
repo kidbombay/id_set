@@ -21,6 +21,7 @@ defmodule IdSet do
 
   """
 
+  @spec add(List, struct) :: list
   def add([], struct) do
     [struct]
   end
@@ -48,6 +49,8 @@ defmodule IdSet do
       [%{id: 1}]
 
   """
+
+  @spec unique(List) :: list
   def unique(list) do
     unique(list, [])
   end
@@ -90,7 +93,11 @@ defmodule IdSet do
       iex> IdSet.member?([%{id: 1}], %{id: 1})
       true
 
+      iex> IdSet.member?([%{id: 1}], %{id: 2})
+      false
+
   """
+  @spec member?(List, struct) :: boolean
   def member?(list, struct) do
     find(list, struct)
   end
