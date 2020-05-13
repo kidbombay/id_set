@@ -1,7 +1,7 @@
 defmodule IdSet do
   @moduledoc """
     An IdSet allows you to manage lists containing structs uniquely by id.
-  
+
     Any struct added/deleted must have an id field.
 
     It's different from MapSet in that the comparison is not unique by value but unique by an id field.
@@ -31,10 +31,10 @@ defmodule IdSet do
   end
 
   def add(list, struct) do
-    if !member?(list, struct) do
-      [struct | list]
-    else
+    if member?(list, struct) do
       unique(list)
+    else
+      [struct | list]
     end
   end
 

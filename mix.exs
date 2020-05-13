@@ -8,21 +8,32 @@ defmodule IdSet.MixProject do
       elixir: "~> 1.10",
       start_permanent: Mix.env() == :prod,
       deps: deps(),
-
+      aliases: aliases(),
+      preferred_cli_env: [
+        ci: :test
+      ],
       name: "IdSet",
       description: "An IdSet allows you to manage lists containing structs uniquely by id",
       source_url: "https://github.com/kidbombay/id_set",
-
       package: [
         maintainers: ["Ketan Anjaria"],
         licenses: ["MIT"],
         links: %{"GitHub" => "https://github.com/kidbombay/id_set"}
       ],
-      
+
+      # Dialyzer
+      dialyzer: [
+        plt_add_apps: [:ex_unit],
+        plt_core_path: "_build/#{Mix.env()}",
+        flags: [:error_handling, :race_conditions, :underspecs]
+      ],
+
+      # Docs
       docs: [
-        main: "IdSet", # The main page in the docs
+        # The main page in the docs
+        main: "IdSet",
         extras: ["README.md"],
-        canonical: "http://hexdocs.pm/id_set",
+        canonical: "http://hexdocs.pm/id_set"
       ]
     ]
   end
@@ -38,8 +49,19 @@ defmodule IdSet.MixProject do
   defp deps do
     [
       {:ex_doc, "~> 0.21", only: :dev, runtime: false},
-      # {:dep_from_hexpm, "~> 0.3.0"},
-      # {:dep_from_git, git: "https://github.com/elixir-lang/my_dep.git", tag: "0.1.0"}
+      {:credo, "~> 1.0", only: [:test, :dev], runtime: false},
+      {:dialyxir, "~> 1.0", only: [:test, :dev], runtime: false}
+    ]
+  end
+
+  defp aliases do
+    [
+      ci: [
+        "format --check-formatted",
+        "credo --strict",
+        "test --raise"
+        # "dialyzer --halt-exit-status"
+      ]
     ]
   end
 end

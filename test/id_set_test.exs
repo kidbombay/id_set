@@ -36,13 +36,13 @@ defmodule IdSetTest do
 
     test "lists with duplicates are uniqued" do
       struct1 = struct_factory()
-      struct2 = struct_factory() 
+      struct2 = struct_factory()
 
       idset = IdSet.add([struct1, struct2], struct1)
       assert idset == [struct1]
 
       struct3 = struct_factory(2)
-      struct4 = struct_factory(2) 
+      struct4 = struct_factory(2)
 
       idset = IdSet.add([struct1, struct2, struct3, struct4], nil)
       assert idset == [struct1, struct3]
@@ -50,18 +50,45 @@ defmodule IdSetTest do
 
     test "lists with uniques are uniqued" do
       struct1 = struct_factory(1)
-      struct2 = struct_factory(2) 
-      struct3 = struct_factory(3) 
-      struct4 = struct_factory(4) 
-      struct5 = struct_factory(5) 
-      struct6 = struct_factory(6) 
-      struct7 = struct_factory(7) 
-      struct8 = struct_factory(8) 
-      struct9 = struct_factory(9) 
+      struct2 = struct_factory(2)
+      struct3 = struct_factory(3)
+      struct4 = struct_factory(4)
+      struct5 = struct_factory(5)
+      struct6 = struct_factory(6)
+      struct7 = struct_factory(7)
+      struct8 = struct_factory(8)
+      struct9 = struct_factory(9)
       struct10 = struct_factory(10)
 
-      idset = IdSet.add([struct1, struct2, struct3, struct4, struct5, struct6, struct7, struct8, struct9, struct10], nil)
-      assert idset == [struct10, struct9, struct8, struct7, struct6, struct5, struct4, struct3, struct2, struct1]
+      idset =
+        IdSet.add(
+          [
+            struct1,
+            struct2,
+            struct3,
+            struct4,
+            struct5,
+            struct6,
+            struct7,
+            struct8,
+            struct9,
+            struct10
+          ],
+          nil
+        )
+
+      assert idset == [
+               struct10,
+               struct9,
+               struct8,
+               struct7,
+               struct6,
+               struct5,
+               struct4,
+               struct3,
+               struct2,
+               struct1
+             ]
     end
   end
 
@@ -91,7 +118,6 @@ defmodule IdSetTest do
 
       assert IdSet.delete([struct1, struct1, struct2], struct1) == [struct2]
     end
-
   end
 
   describe "member?" do
