@@ -2,7 +2,7 @@
 
 An IdSet allows you to manage lists containing structs uniquely by id
 
-<p align="center">
+<p>
   <a href="https://hex.pm/packages/id_set">
     <img alt="Hex Version" src="https://img.shields.io/hexpm/v/id_set.svg">
   </a>
