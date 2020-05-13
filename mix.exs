@@ -21,7 +21,8 @@ defmodule IdSet.MixProject do
       
       docs: [
         main: "IdSet", # The main page in the docs
-        extras: ["README.md"]
+        extras: ["README.md"],
+        canonical: "http://hexdocs.pm/id_set",
       ]
     ]
   end
